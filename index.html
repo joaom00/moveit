@@ -40,21 +40,20 @@
         </div>
 
         <div class="countdown">
-          <div>
-            <span>2</span>
-            <span>5</span>
+          <div class="minutes-container">
+            <span id="minuteLeft">2</span>
+            <span id="minuteRight">5</span>
           </div>
           <span>:</span>
-          <div>
-            <span>0</span>
-            <span>0</span>
+          <div class="seconds-container">
+            <span id="secondLeft">0</span>
+            <span id="secondRight">0</span>
           </div>
         </div>
-
-        <button>Iniciar um ciclo</button>
+        <button class="countdown-button">Iniciar um ciclo</button>
       </section>
-      <section class="right-content">
-        <h3>
+      <section class="right-content challenge-active">
+        <!-- <h3>
           Inicie um ciclo <br />
           para receber desafios
         </h3>
@@ -62,8 +61,10 @@
         <p>
           Avance de level completando <br />
           os desafios.
-        </p>
+        </p> -->
       </section>
     </main>
+
+    <script src="./script.js"></script>
   </body>
 </html>

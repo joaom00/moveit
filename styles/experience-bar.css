@@ -1,5 +1,6 @@
 .experience-bar {
   display: flex;
+  align-items: center;
   padding: 4rem 0;
 }
 
@@ -19,8 +20,6 @@
 
 .experience-bar span {
   font-size: 1.4rem;
-  height: 4px;
-  border-radius: 5px;
 }
 
 .experience-bar .current-experience {
