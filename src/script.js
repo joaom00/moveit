@@ -20,6 +20,8 @@ const challengesCompletedText = document.querySelector(
 const countdownButton = document.querySelector('.countdown-button');
 const challengeBox = document.querySelector('.challenge-box');
 const profileImg = document.querySelector('.profile img');
+const modalContainer = document.querySelector('.modal-container');
+const closeModalButton = document.querySelector('.close-modal');
 
 const minuteLeftSpan = document.querySelector('#minute-left');
 const minuteRightSpan = document.querySelector('#minute-right');
@@ -30,20 +32,20 @@ let time = 0.1 * 60;
 let minutes = Math.floor(time / 60);
 let seconds = time % 60;
 let countdown;
-let level = 1;
-let currentExperience = 0;
-let challengesCompleted = 0;
+let level;
+let currentExperience;
+let challengesCompleted;
 
 if (
-  localStorageImg &&
-  localStorageLevel &&
-  localStorageCurrentExperience &&
+  localStorageImg ||
+  localStorageLevel ||
+  localStorageCurrentExperience ||
   localStorageChallengesCompleted
 ) {
   profileImg.src = localStorageImg;
-  level = localStorageLevel;
-  currentExperience = localStorageCurrentExperience;
-  challengesCompleted = localStorageChallengesCompleted;
+  level = localStorageLevel || 1;
+  currentExperience = localStorageCurrentExperience || 0;
+  challengesCompleted = localStorageChallengesCompleted || 0;
 
   currentExperienceText.innerText = `${currentExperience} xp`;
 }
@@ -176,6 +178,7 @@ function completeChallenge(amount) {
     finalExperience = finalExperience - experienceToNextLevel;
     level += 1;
     experienceToNextLevel = Math.pow((level + 1) * 4, 2);
+    showPopup(level);
 
     levelText.innerText = `Level ${level}`;
     experienceToNextLevelText.innerText = `${experienceToNextLevel} xp`;
@@ -197,6 +200,15 @@ function completeChallenge(amount) {
   challengesCompletedText.innerText = challengesCompleted;
 }
 
+function showPopup(level) {
+  const modal = modalContainer.querySelector('.modal');
+  const levelText = modalContainer.querySelector('.wings span');
+
+  modalContainer.classList.add('active');
+  modal.classList.add('active');
+  levelText.innerText = level;
+}
+
 countdownButton.addEventListener('click', () => {
   const containsActiveClass = countdownButton.classList.contains('active');
 
@@ -210,4 +222,11 @@ countdownButton.addEventListener('click', () => {
     countdownButton.innerText = 'Abandonar Ciclo';
     startCountdown();
   }
+});
+
+closeModalButton.addEventListener('click', () => {
+  const modal = modalContainer.querySelector('.modal');
+
+  modalContainer.classList.remove('active');
+  modal.classList.remove('active');
 });
