@@ -1,7 +1,9 @@
 @import 'global.css';
 @import 'components/experience-bar.css';
-@import 'main.css';
+@import 'pages/app.css';
 @import 'components/profile.css';
 @import 'components/challenges-completed.css';
 @import 'components/countdown.css';
 @import 'components/challenge-box.css';
+
+@import 'pages/adicionar-image.css';
