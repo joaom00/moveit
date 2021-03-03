@@ -1,4 +1,5 @@
 const localStorageImg = localStorage.getItem('@MoveIt:img');
+const localStorageName = localStorage.getItem('@MoveIt:name');
 const localStorageLevel = Number(localStorage.getItem('@MoveIt:level'));
 const localStorageCurrentExperience = Number(
   localStorage.getItem('@MoveIt:currentExperience')
@@ -17,6 +18,7 @@ const challengesCompletedText = document.querySelector(
   '.challenges-completed span'
 );
 
+const userName = document.querySelector('.profile h1');
 const countdownButton = document.querySelector('.countdown-button');
 const challengeBox = document.querySelector('.challenge-box');
 const profileImg = document.querySelector('.profile img');
@@ -35,6 +37,8 @@ let countdown;
 let level;
 let currentExperience;
 let challengesCompleted;
+
+userName.innerText = localStorageName || 'Sem nome'
 
 if (
   localStorageImg ||
