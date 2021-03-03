@@ -1,3 +1,12 @@
+const localStorageImg = localStorage.getItem('@MoveIt:img');
+const localStorageLevel = Number(localStorage.getItem('@MoveIt:level'));
+const localStorageCurrentExperience = Number(
+  localStorage.getItem('@MoveIt:currentExperience')
+);
+const localStorageChallengesCompleted = Number(
+  localStorage.getItem('@MoveIt:challengesCompleted')
+);
+
 const percentToNextLevelText = document.querySelector('#percentage-next-level');
 const currentExperienceText = document.querySelector('.current-experience');
 const levelText = document.querySelector('.level');
@@ -10,6 +19,7 @@ const challengesCompletedText = document.querySelector(
 
 const countdownButton = document.querySelector('.countdown-button');
 const challengeBox = document.querySelector('.challenge-box');
+const profileImg = document.querySelector('.profile img');
 
 const minuteLeftSpan = document.querySelector('#minute-left');
 const minuteRightSpan = document.querySelector('#minute-right');
@@ -24,6 +34,20 @@ let level = 1;
 let currentExperience = 0;
 let challengesCompleted = 0;
 
+if (
+  localStorageImg &&
+  localStorageLevel &&
+  localStorageCurrentExperience &&
+  localStorageChallengesCompleted
+) {
+  profileImg.src = localStorageImg;
+  level = localStorageLevel;
+  currentExperience = localStorageCurrentExperience;
+  challengesCompleted = localStorageChallengesCompleted;
+
+  currentExperienceText.innerText = `${currentExperience} xp`;
+}
+
 let experienceToNextLevel = Math.pow((level + 1) * 4, 2);
 let percentToNextLevel =
   Math.round(currentExperience * 100) / experienceToNextLevel;
@@ -31,13 +55,15 @@ let percentToNextLevel =
 experienceToNextLevelText.innerText = `${experienceToNextLevel} xp`;
 levelText.innerText = `Level ${level}`;
 challengesCompletedText.innerText = challengesCompleted;
+currentExperienceText.style.left = `${percentToNextLevel}%`;
+percentToNextLevelText.style.width = `${percentToNextLevel}%`;
 
 const challengeNotActiveHTML = `
 <h3>
 Inicie um ciclo <br />
 para receber desafios
 </h3>
-<img src="./icons/level-up.svg" alt="" />
+<img src="../icons/level-up.svg" alt="" />
 <p>
 Avance de level completando <br />
 os desafios.
@@ -132,16 +158,14 @@ function startNewChallenge() {
   countdownButton.innerText = 'Ciclo encerrado';
   countdownButton.setAttribute('disabled', true);
 
-  const buttons = challengeBox.querySelectorAll('button');
-
   const succeededButton = challengeBox.querySelector('.succeeded');
+  const failedButton = challengeBox.querySelector('.failed');
 
-  buttons.forEach((button) => {
-    button.addEventListener('click', resetAll);
-  });
+  failedButton.addEventListener('click', resetAll);
 
   succeededButton.addEventListener('click', () => {
     completeChallenge(challenge.amount);
+    resetAll();
   });
 }
 
@@ -155,12 +179,17 @@ function completeChallenge(amount) {
 
     levelText.innerText = `Level ${level}`;
     experienceToNextLevelText.innerText = `${experienceToNextLevel} xp`;
+
+    localStorage.setItem('@MoveIt:level', level);
   }
 
   currentExperience = finalExperience;
+  challengesCompleted += 1;
   percentToNextLevel =
     Math.round(currentExperience * 100) / experienceToNextLevel;
-  challengesCompleted += 1;
+
+  localStorage.setItem('@MoveIt:currentExperience', currentExperience);
+  localStorage.setItem('@MoveIt:challengesCompleted', challengesCompleted);
 
   currentExperienceText.innerText = `${currentExperience} xp`;
   currentExperienceText.style.left = `${percentToNextLevel}%`;

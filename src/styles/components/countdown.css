@@ -40,6 +40,7 @@
   background-color: var(--blue);
   border-radius: 5px;
   border: 0;
+  outline: 0;
   color: var(--white);
   font-size: 2rem;
   font-weight: 600;
