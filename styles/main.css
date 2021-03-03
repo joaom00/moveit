@@ -1,5 +1,5 @@
 .main {
-  margin-top: 110px;
+  margin-top: 56px;
   display: grid;
   grid-template-columns: 389px 468px;
   grid-gap: 103px;
@@ -110,6 +110,11 @@
 .left-content button.active {
   color: var(--text);
   background-color: var(--white);
+}
+
+.left-content button.active:hover {
+  color: var(--white);
+  background-color: var(--red);
 }
 
 .left-content button.closed {

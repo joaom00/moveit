@@ -147,8 +147,9 @@ function completeChallenge(amount) {
   if (finalExperience >= experienceToNextLevel) {
     finalExperience = finalExperience - experienceToNextLevel;
     level += 1;
-    levelText.innerText = `Level ${level}`;
     experienceToNextLevel = Math.pow((level + 1) * 4, 2);
+
+    levelText.innerText = `Level ${level}`;
     experienceToNextLevelText.innerText = `${experienceToNextLevel} xp`;
   }
 
