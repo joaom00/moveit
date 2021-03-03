@@ -16,10 +16,10 @@
     <header class="experience-bar container">
       <span>0 xp</span>
       <div>
-        <div></div>
-        <span class="current-experience">300 xp</span>
+        <div id="percentage-next-level"></div>
+        <span class="current-experience">0 xp</span>
       </div>
-      <span>600 xp</span>
+      <span id="experience-next-level">600 xp</span>
     </header>
     <main class="main container">
       <section class="left-content">
@@ -29,7 +29,7 @@
             <h1>João Pedro</h1>
             <p>
               <img src="./icons/level.svg" alt="" />
-              Level 1
+              <span class="level">Level 1</span>
             </p>
           </div>
         </div>
@@ -52,8 +52,8 @@
         </div>
         <button class="countdown-button">Iniciar um ciclo</button>
       </section>
-      <section class="right-content challenge-active">
-        <!-- <h3>
+      <section class="right-content">
+        <h3>
           Inicie um ciclo <br />
           para receber desafios
         </h3>
@@ -61,10 +61,11 @@
         <p>
           Avance de level completando <br />
           os desafios.
-        </p> -->
+        </p>
       </section>
     </main>
 
+    <script src="./challenges.js"></script>
     <script src="./script.js"></script>
   </body>
 </html>

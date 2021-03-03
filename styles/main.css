@@ -112,6 +112,12 @@
   background-color: var(--white);
 }
 
+.left-content button.closed {
+  color: var(--text);
+  background-color: var(--white);
+  border-bottom: 4px solid var(--green);
+}
+
 .right-content {
   background-color: var(--white);
   display: flex;
@@ -140,4 +146,72 @@
   line-height: 2.6rem;
   font-weight: 400;
   text-align: center;
+}
+
+.right-content.challenge-active {
+  justify-content: stretch;
+  align-items: center;
+  padding: 0 64px 32px 64px;
+}
+
+.right-content.challenge-active header {
+  padding: 25px 0;
+  border-bottom: 1px solid var(--gray-line);
+  width: 100%;
+}
+
+.right-content.challenge-active header p {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--blue);
+}
+
+.right-content.challenge-active .challenge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.right-content.challenge-active .challenge h3 {
+  font-size: 3rem;
+  color: var(--title);
+  font-weight: 600;
+  margin-top: 24px;
+}
+
+.right-content.challenge-active .challenge p {
+  font-size: 1.6rem;
+  color: var(--text);
+  font-weight: 400;
+  margin-top: 8px;
+}
+
+.right-content.challenge-active .button-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 8px;
+  margin-top: 38px;
+}
+
+.right-content.challenge-active .button-container button {
+  padding: 16px 0;
+  border-radius: 5px;
+  border: 0;
+  color: var(--white);
+  font-size: 1.6rem;
+  font-weight: 600;
+  transition: filter 0.4s ease;
+}
+
+.right-content.challenge-active .button-container button:hover {
+  filter: brightness(0.9);
+}
+
+.right-content.challenge-active .button-container button.failed {
+  background-color: var(--red);
+}
+
+.right-content.challenge-active .button-container button.succeeded {
+  background-color: var(--green);
 }
