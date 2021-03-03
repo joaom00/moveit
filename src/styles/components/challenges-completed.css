@@ -1,0 +1,19 @@
+.challenges-completed {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 56px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--gray-line);
+}
+
+.challenges-completed p {
+  color: var(--text);
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.challenges-completed span {
+  font-size: 2.4rem;
+  font-weight: 500;
+  color: var(--text);
+}

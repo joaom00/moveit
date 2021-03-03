@@ -1,0 +1,68 @@
+.countdown {
+  margin-top: 56px;
+  font-family: Rajdhani;
+  color: var(--title);
+  display: flex;
+}
+
+.countdown > div {
+  flex: 1;
+
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  background: var(--white);
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
+  text-align: center;
+}
+
+.countdown > div span {
+  flex: 1;
+}
+
+.countdown .minutes-container span:first-child {
+  border-right: 2px solid #f0f1f3;
+}
+
+.countdown .seconds-container span:first-child {
+  border-right: 2px solid #f0f1f3;
+}
+
+.countdown span {
+  font-size: 12rem;
+}
+
+.countdown-button {
+  margin-top: 32px;
+  width: 100%;
+  background-color: var(--blue);
+  border-radius: 5px;
+  border: 0;
+  color: var(--white);
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 28px 106px;
+  transition: background-color 0.4s ease;
+}
+
+.countdown-button:hover {
+  background-color: var(--blue-dark);
+}
+
+.countdown-button.active {
+  color: var(--text);
+  background-color: var(--white);
+}
+
+.countdown-button.active:hover {
+  color: var(--white);
+  background-color: var(--red);
+}
+
+.countdown-button.closed {
+  color: var(--text);
+  background-color: var(--white);
+  border-bottom: 4px solid var(--green);
+}

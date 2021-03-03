@@ -1,17 +1,20 @@
 const percentToNextLevelText = document.querySelector('#percentage-next-level');
 const currentExperienceText = document.querySelector('.current-experience');
+const levelText = document.querySelector('.level');
 const experienceToNextLevelText = document.querySelector(
   '#experience-next-level'
 );
-const levelText = document.querySelector('.level');
+const challengesCompletedText = document.querySelector(
+  '.challenges-completed span'
+);
 
 const countdownButton = document.querySelector('.countdown-button');
-const challengeBox = document.querySelector('.right-content');
+const challengeBox = document.querySelector('.challenge-box');
 
-const minuteLeftSpan = document.querySelector('#minuteLeft');
-const minuteRightSpan = document.querySelector('#minuteRight');
-const secondLeftSpan = document.querySelector('#secondLeft');
-const secondRightSpan = document.querySelector('#secondRight');
+const minuteLeftSpan = document.querySelector('#minute-left');
+const minuteRightSpan = document.querySelector('#minute-right');
+const secondLeftSpan = document.querySelector('#second-left');
+const secondRightSpan = document.querySelector('#second-right');
 
 let time = 0.1 * 60;
 let minutes = Math.floor(time / 60);
@@ -25,8 +28,9 @@ let experienceToNextLevel = Math.pow((level + 1) * 4, 2);
 let percentToNextLevel =
   Math.round(currentExperience * 100) / experienceToNextLevel;
 
-experienceToNextLevelText.innerText = experienceToNextLevel;
+experienceToNextLevelText.innerText = `${experienceToNextLevel} xp`;
 levelText.innerText = `Level ${level}`;
+challengesCompletedText.innerText = challengesCompleted;
 
 const challengeNotActiveHTML = `
 <h3>
@@ -108,7 +112,7 @@ function startNewChallenge() {
   </header>
   
   <div class="challenge">
-  <div><img src="./icons/${ExerciseType(
+  <div><img src="../icons/${ExerciseType(
     challenge.type
   )}.svg" alt="Desafio de ${ExerciseType(challenge.type)}" /></div>
   <h3>Exercite-se</h3>
@@ -158,9 +162,10 @@ function completeChallenge(amount) {
     Math.round(currentExperience * 100) / experienceToNextLevel;
   challengesCompleted += 1;
 
-  currentExperienceText.innerText = currentExperience;
+  currentExperienceText.innerText = `${currentExperience} xp`;
   currentExperienceText.style.left = `${percentToNextLevel}%`;
   percentToNextLevelText.style.width = `${percentToNextLevel}%`;
+  challengesCompletedText.innerText = challengesCompleted;
 }
 
 countdownButton.addEventListener('click', () => {
