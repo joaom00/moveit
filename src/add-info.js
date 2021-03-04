@@ -11,12 +11,10 @@ form.addEventListener('submit', (event) => {
   if (window.location.origin === 'https://joaom00.github.io') {
     window.location.pathname = '/MoveIt';
   }
-  window.location.pathname = '/index.html';
 });
 
 notAddButon.addEventListener('click', () => {
   if (window.location.origin === 'https://joaom00.github.io') {
     window.location.pathname = '/MoveIt';
   }
-  window.location.pathname = '/index.html';
 });
