@@ -34,7 +34,7 @@
 }
 
 .modal-container .modal .wings {
-  background-image: url('../../../icons/levelup.svg');
+  background-image: url('../../../public/icons/levelup.svg');
   width: 15.3rem;
   height: 10rem;
   margin-bottom: 32px;
