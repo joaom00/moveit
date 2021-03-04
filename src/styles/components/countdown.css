@@ -23,11 +23,11 @@
 }
 
 .countdown .minutes-container span:first-child {
-  border-right: 2px solid #f0f1f3;
+  border-right: 2px solid var(--background);
 }
 
 .countdown .seconds-container span:first-child {
-  border-right: 2px solid #f0f1f3;
+  border-right: 2px solid var(--background);
 }
 
 .countdown span {
@@ -41,7 +41,7 @@
   border-radius: 5px;
   border: 0;
   outline: 0;
-  color: var(--white);
+  color: var(--button-text);
   font-size: 2rem;
   font-weight: 600;
   padding: 28px 106px;
@@ -53,8 +53,8 @@
 }
 
 .countdown-button.active {
-  color: var(--text);
-  background-color: var(--white);
+  color: #666;
+  background-color: #fff;
 }
 
 .countdown-button.active:hover {
@@ -63,7 +63,7 @@
 }
 
 .countdown-button.closed {
-  color: var(--text);
-  background-color: var(--white);
+  color: #666;
+  background-color: #fff;
   border-bottom: 4px solid var(--green);
 }

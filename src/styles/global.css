@@ -10,6 +10,7 @@
   --blue: #5965e0;
   --blue-dark: #4953b8;
   --blue-twitter: #2aa9e0;
+  --button-text: #fff;
 }
 
 *,
@@ -40,6 +41,11 @@ button {
 
 a {
   text-decoration: none;
+  color: #666666;
+}
+
+ul {
+  list-style: none;
 }
 
 .container {

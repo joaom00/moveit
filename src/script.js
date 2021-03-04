@@ -19,9 +19,9 @@ const challengesCompletedText = document.querySelector(
 );
 
 const userName = document.querySelector('.profile h1');
+const profileImg = document.querySelector('.profile img');
 const countdownButton = document.querySelector('.countdown-button');
 const challengeBox = document.querySelector('.challenge-box');
-const profileImg = document.querySelector('.profile img');
 const modalContainer = document.querySelector('.modal-container');
 const closeModalButton = document.querySelector('.close-modal');
 
@@ -38,21 +38,13 @@ let level;
 let currentExperience;
 let challengesCompleted;
 
-userName.innerText = localStorageName || 'Sem nome'
+userName.innerText = localStorageName || 'Sem nome';
+profileImg.src = localStorageImg || '';
+level = localStorageLevel || 1;
+currentExperience = localStorageCurrentExperience || 0;
+challengesCompleted = localStorageChallengesCompleted || 0;
 
-if (
-  localStorageImg ||
-  localStorageLevel ||
-  localStorageCurrentExperience ||
-  localStorageChallengesCompleted
-) {
-  profileImg.src = localStorageImg;
-  level = localStorageLevel || 1;
-  currentExperience = localStorageCurrentExperience || 0;
-  challengesCompleted = localStorageChallengesCompleted || 0;
-
-  currentExperienceText.innerText = `${currentExperience} xp`;
-}
+currentExperienceText.innerText = `${currentExperience} xp`;
 
 let experienceToNextLevel = Math.pow((level + 1) * 4, 2);
 let percentToNextLevel =
@@ -69,7 +61,7 @@ const challengeNotActiveHTML = `
 Inicie um ciclo <br />
 para receber desafios
 </h3>
-<img src="../icons/level-up.svg" alt="" />
+<img src="./icons/level-up.svg" alt="" />
 <p>
 Avance de level completando <br />
 os desafios.
@@ -144,7 +136,7 @@ function startNewChallenge() {
   </header>
   
   <div class="challenge">
-  <div><img src="../icons/${ExerciseType(
+  <div><img src="./icons/${ExerciseType(
     challenge.type
   )}.svg" alt="Desafio de ${ExerciseType(challenge.type)}" /></div>
   <h3>Exercite-se</h3>
@@ -173,6 +165,14 @@ function startNewChallenge() {
     completeChallenge(challenge.amount);
     resetAll();
   });
+
+  new Audio('./notification.mp3').play();
+
+  if (Notification.permission === 'granted') {
+    new Notification('Novo desafio 🎉', {
+      body: `Valendo ${challenge.amount}xp!`,
+    });
+  }
 }
 
 function completeChallenge(amount) {
@@ -234,3 +234,19 @@ closeModalButton.addEventListener('click', () => {
   modalContainer.classList.remove('active');
   modal.classList.remove('active');
 });
+
+const dropdownButton = document.querySelector('.dropdown-button');
+const resetDataButton = document.querySelector('.reset-button');
+
+dropdownButton.addEventListener('click', () => {
+  dropdownButton.querySelector('.dropdown').classList.toggle('active');
+});
+
+resetDataButton.addEventListener('click', () => {
+  localStorage.removeItem('@MoveIt:level');
+  localStorage.removeItem('@MoveIt:challengesCompleted');
+  localStorage.removeItem('@MoveIt:currentExperience');
+  window.location.reload();
+});
+
+window.addEventListener('load', () => Notification.requestPermission());

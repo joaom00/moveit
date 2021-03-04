@@ -82,7 +82,7 @@
   padding: 16px 0;
   border-radius: 5px;
   border: 0;
-  color: var(--white);
+  color: var(--button-text);
   font-size: 1.6rem;
   font-weight: 600;
   transition: filter 0.4s ease;

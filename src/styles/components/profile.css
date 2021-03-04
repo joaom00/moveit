@@ -3,6 +3,10 @@
   align-items: center;
 }
 
+.profile > div {
+  flex: 1;
+}
+
 .profile > img {
   width: 88px;
   height: 88px;
@@ -11,10 +15,67 @@
   object-fit: cover;
 }
 
-.profile h1 {
+.profile .name-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile .name-container h1 {
   font-size: 2.4rem;
   color: var(--title);
   font-weight: 600;
+}
+
+.profile .name-container > button {
+  background: none;
+  border: 0;
+  outline: none;
+  position: relative;
+}
+
+.profile .name-container button .settings-icon {
+  color: var(--white);
+}
+
+.profile .name-container button .dropdown {
+  position: absolute;
+  right: 0;
+  background-color: #fff;
+  padding: 16px 0;
+  border-radius: 5px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  width: 164px;
+  transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0s;
+  transform: translateY(-20px);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.profile .name-container button .dropdown.active {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.profile .name-container button .dropdown ul {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  color: #666666;
+  overflow: hidden;
+}
+
+.profile .name-container button .dropdown ul li {
+  font-size: 1.4rem;
+  padding: 8px;
+  padding-left: 16px;
+  width: 100%;
+  text-align: start;
+}
+
+.profile .name-container button .dropdown ul li:hover {
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .profile p {
