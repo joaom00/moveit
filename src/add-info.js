@@ -9,13 +9,15 @@ form.addEventListener('submit', (event) => {
   localStorage.setItem('@MoveIt:img', inputLink.value);
   if (window.location.origin === 'https://joaom00.github.io') {
     window.location.href = 'https://joaom00.github.io/MoveIt/';
+  } else {
+    window.location.pathname = '/index.html';
   }
-  window.location.pathname = '/index.html';
 });
 
 notAddButon.addEventListener('click', () => {
   if (window.location.origin === 'https://joaom00.github.io') {
     window.location.href = 'https://joaom00.github.io/MoveIt/';
+  } else {
+    window.location.pathname = '/index.html';
   }
-  window.location.pathname = '/index.html';
 });
