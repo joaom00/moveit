@@ -59,12 +59,17 @@ input:focus {
   filter: brightness(0.9);
 }
 
-.input-container .button-container button:first-child {
+.input-container .button-container .not-add-button {
   background-color: var(--red);
   margin-right: 24px;
 }
 
-.input-container .button-container button:last-child {
+.input-container .button-container .add-button {
+  background-color: var(--green);
+  margin-right: 24px;
+}
+
+.input-container .button-container .add-button a {
   background-color: var(--green);
   margin-right: 24px;
 }
