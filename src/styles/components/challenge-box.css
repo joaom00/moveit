@@ -99,3 +99,18 @@
 .challenge-box.challenge-active .button-container button.succeeded {
   background-color: var(--green);
 }
+
+@media (max-width: 800px) {
+  .challenge-box {
+    margin-bottom: 24px;
+  }
+
+  .challenge-box.challenge-active .button-container {
+    grid-template-columns: 1fr;
+  }
+
+  .challenge-box.challenge-active {
+    padding: 0 64px 24px 64px;
+    margin-bottom: 24px;
+  }
+}

@@ -4,3 +4,11 @@
   grid-template-columns: 389px 468px;
   grid-gap: 103px;
 }
+
+@media (max-width: 800px) {
+  .main {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 72px;
+  }
+}

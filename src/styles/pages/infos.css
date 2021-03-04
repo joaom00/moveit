@@ -66,14 +66,20 @@ input:focus {
 
 .input-container .button-container .add-button {
   background-color: var(--green);
-  margin-right: 24px;
-}
-
-.input-container .button-container .add-button a {
-  background-color: var(--green);
-  margin-right: 24px;
 }
 
 button:focus {
   box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+}
+
+@media (max-width: 800px) {
+  .input-container .button-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .input-container .button-container .not-add-button {
+    margin-bottom: 16px;
+    margin-right: 0;
+  }
 }
