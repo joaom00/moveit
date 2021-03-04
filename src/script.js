@@ -61,7 +61,7 @@ const challengeNotActiveHTML = `
 Inicie um ciclo <br />
 para receber desafios
 </h3>
-<img src="./icons/level-up.svg" alt="" />
+<img src="./public/icons/level-up.svg" alt="" />
 <p>
 Avance de level completando <br />
 os desafios.
@@ -136,7 +136,7 @@ function startNewChallenge() {
   </header>
   
   <div class="challenge">
-  <div><img src="./icons/${ExerciseType(
+  <div><img src="./public/icons/${ExerciseType(
     challenge.type
   )}.svg" alt="Desafio de ${ExerciseType(challenge.type)}" /></div>
   <h3>Exercite-se</h3>

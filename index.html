@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="./favicon.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="./public/favicon.png" type="image/x-icon" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Rajdhani:wght@600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../src/styles/index.css" />
+    <link rel="stylesheet" href="./src/styles/index.css" />
     <title>MoveIt</title>
   </head>
   <body>
@@ -30,17 +30,21 @@
             <div class="name-container">
               <h1></h1>
               <button class="dropdown-button">
-                <img class="settings-icon" src="./icons/settings.svg" alt="" />
+                <img
+                  class="settings-icon"
+                  src="./public/icons/settings.svg"
+                  alt=""
+                />
                 <div class="dropdown">
                   <ul>
-                    <li><a href="/public/infos.html">Editar usuário</a></li>
+                    <li><a href="./infos.html">Editar usuário</a></li>
                     <li class="reset-button">Resetar dados</li>
                   </ul>
                 </div>
               </button>
             </div>
             <p>
-              <img src="./icons/level.svg" alt="" />
+              <img src="./public/icons/level.svg" alt="" />
               <span class="level">Level 1</span>
             </p>
           </div>
@@ -70,7 +74,7 @@
           Inicie um ciclo <br />
           para receber desafios
         </h3>
-        <img src="./icons/level-up.svg" alt="" />
+        <img src="./public/icons/level-up.svg" alt="" />
         <p>
           Avance de level completando <br />
           os desafios.
@@ -85,11 +89,11 @@
         </div>
         <p class="title">Parabéns</p>
         <p class="description">Você alcançou um novo level.</p>
-        <img class="close-modal" src="./icons/close.svg" alt="" />
+        <img class="close-modal" src="./public/icons/close.svg" alt="" />
       </div>
     </div>
 
-    <script src="../src/challenges.js"></script>
-    <script src="../src/script.js"></script>
+    <script src="./src/challenges.js"></script>
+    <script src="./src/script.js"></script>
   </body>
 </html>

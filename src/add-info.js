@@ -8,9 +8,9 @@ form.addEventListener('submit', (event) => {
   event.preventDefault();
   localStorage.setItem('@MoveIt:name', inputName.value);
   localStorage.setItem('@MoveIt:img', inputLink.value);
-  window.location.pathname = '/public/index.html';
+  window.location.pathname = '/index.html';
 });
 
 notAddButon.addEventListener('click', () => {
-  window.location.pathname = '/public/index.html';
+  window.location.pathname = '/index.html';
 });
